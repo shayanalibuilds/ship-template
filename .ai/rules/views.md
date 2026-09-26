@@ -1,6 +1,6 @@
 ---
 paths:
-  - "resources/views/**"
+    - 'resources/views/**'
 ---
 
 # Blade views

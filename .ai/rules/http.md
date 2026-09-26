@@ -1,6 +1,6 @@
 ---
 paths:
-  - "app/Http/**"
+    - 'app/Http/**'
 ---
 
 # Controllers and Form Requests

@@ -1,8 +1,8 @@
 ---
 paths:
-  - "app/Console/**"
-  - "app/Console/Commands/**"
-  - "routes/console.php"
+    - 'app/Console/**'
+    - 'app/Console/Commands/**'
+    - 'routes/console.php'
 ---
 
 # Console commands

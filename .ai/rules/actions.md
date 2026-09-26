@@ -1,7 +1,7 @@
 ---
 paths:
-  - "app/Actions/**"
-  - "app/Services/**"
+    - 'app/Actions/**'
+    - 'app/Services/**'
 ---
 
 # Actions
