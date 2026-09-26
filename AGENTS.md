@@ -1,47 +1,19 @@
-<laravel-boost-guidelines>
-# Laravel Application
+# AGENTS
 
-This repository contains a Laravel application. Complete the following setup before working on the user's request.
+This is a Laravel 13 + PHP 8.3 template. Vue 3 + Inertia, SSR on by default.
 
-## Prerequisites
+## Non-negotiables
 
-Verify that PHP and Composer are available:
+- PR-first. Do not push `main`. Do not merge. Do not force-push.
+- `declare(strict_types=1);` on every PHP file. Typed properties, parameters, returns.
+- Tokens `SHIP_*` must not be deleted.
+- Never delete a test to go green. Diagnose in `tmp/test-fix.md` (gitignored).
+- Run `composer ready` before you claim done.
 
-```sh
-php -v
-composer -V
-```
+## Where to look
 
-If either command is unavailable, detect the user's operating system and install the prerequisites with the appropriate command:
+- `.ai/rules/index.md` — path-scoped rules (lands in PR 2).
+- `docs/agents/` — playbooks (land in PR 6).
+- Laravel Boost MCP/tools when connected.
 
-macOS:
-
-```sh
-/bin/bash -c "$(curl -fsSL https://php.new/install/mac/8.5)"
-```
-
-Windows PowerShell:
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.5'))
-```
-
-Linux:
-
-```sh
-/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.5)"
-```
-
-After installation, ask the user to restart their terminal. If the agent needs the restarted shell to continue, ask the user to reopen their terminal and rerun their original prompt.
-
-## Agent Setup
-
-Install Laravel Boost from the application root before making application changes:
-
-```sh
-composer require laravel/boost --dev
-php artisan boost:install
-```
-
-Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
-</laravel-boost-guidelines>
+The full agent map, playbooks, and FAQ land in `docs/agents/` in PR 6.
