@@ -1,0 +1,9 @@
+vendor
+node_modules
+public
+storage
+bootstrap/cache
+database/database.sqlite
+composer.lock
+package-lock.json
+lang
