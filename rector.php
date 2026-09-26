@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\DeadCode\Rector\ClassMethod\RemoveEmptyClassMethodRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -22,4 +23,6 @@ return RectorConfig::configure()
     ->withSkip([
         // Runtime-generated files. Never rewrite them.
         __DIR__.'/bootstrap/cache',
+        // Laravel requires seeder run() to exist, even when nothing is seeded.
+        RemoveEmptyClassMethodRector::class => [__DIR__.'/database/seeders'],
     ]);
