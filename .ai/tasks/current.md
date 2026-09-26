@@ -1,15 +1,11 @@
 # Current
 
-Outcome: When a developer clones the repo, the Laravel 13 + Inertia Vue SSR shell boots with Fission tooling configured and the /up smoke test is green.
+Outcome: When an agent opens this repo, Laravel Boost is installed and the AI surface (.ai/guidelines + path-scoped .ai/rules) describes THIS template conventions.
 
-Branch: chore/scaffold-laravel
+Branch: chore/boost-and-ai-surface
 
 Tests I will add:
-
-- Pest smoke test: GET /up returns 200 (replaces skeleton ExampleTest).
+- None applicable (docs/chore PR). Pint and Pest must stay green.
 
 Must not break:
-
-- The scaffold commit on main.
-- `php artisan migrate` on SQLite.
-- `/up` health endpoint.
+- PR 1 scaffold: Inertia SSR shell, composer scripts, smoke test.
