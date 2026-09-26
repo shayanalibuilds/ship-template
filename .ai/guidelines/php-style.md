@@ -1,8 +1,8 @@
 ---
 paths:
-  - "app/**"
-  - "database/**"
-  - "tests/**"
+    - 'app/**'
+    - 'database/**'
+    - 'tests/**'
 ---
 
 # PHP style
