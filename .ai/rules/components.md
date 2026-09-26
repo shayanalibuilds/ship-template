@@ -1,7 +1,7 @@
 ---
 paths:
-  - "resources/views/components/**"
-  - "resources/js/components/**"
+    - 'resources/views/components/**'
+    - 'resources/js/components/**'
 ---
 
 # Components

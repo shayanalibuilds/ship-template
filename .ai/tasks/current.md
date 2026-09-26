@@ -1,11 +1,22 @@
 # Current
 
-Outcome: When an agent opens this repo, Laravel Boost is installed and the AI surface (.ai/guidelines + path-scoped .ai/rules) describes THIS template conventions.
+Outcome: When a visitor opens the app, they see a home page and a Releases flow (list/show/create) rendered through Inertia Vue SSR, backed by a Release model with draft/published states, and the feature tests cover the flow.
 
-Branch: chore/boost-and-ai-surface
+Branch: feat/app-shell
 
 Tests I will add:
-- None applicable (docs/chore PR). Pint and Pest must stay green.
+
+- it lists only published releases
+- it paginates the releases index
+- it orders releases newest first
+- it shows a published release by slug
+- it does not show draft releases to guests
+- it renders the create form
+- it validates the create form
+- it creates a draft release from the form
+- it generates a unique slug when the title exists
 
 Must not break:
-- PR 1 scaffold: Inertia SSR shell, composer scripts, smoke test.
+
+- /up health endpoint, PR 1 smoke test.
+- SSR build (`npm run build:ssr`).

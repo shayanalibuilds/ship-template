@@ -1,6 +1,6 @@
 ---
 paths:
-  - "database/migrations/**"
+    - 'database/migrations/**'
 ---
 
 # Migrations
