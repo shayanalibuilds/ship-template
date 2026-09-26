@@ -16,6 +16,17 @@ This is a Laravel 13 + PHP 8.3 template. Vue 3 + Inertia, SSR on by default.
 - Never delete a test to go green. Diagnose in `tmp/test-fix.md` (gitignored).
 - Thin controllers. Writes go through actions. Validation through Form Requests.
 
+## PR style (all agents)
+
+- One concern per PR. Follow `.github/pull_request_template.md` exactly.
+- Never re-type or paraphrase commit messages in a PR body. Link every commit as
+  ``[`short-sha`](https://github.com/<owner>/<repo>/commit/<full-sha>)`` so a human
+  can click straight into the raw change and review it.
+- End the description with the quality-gates table, filled from your last real
+  `composer test` run (peck / pest / pint + prettier / phpstan / rector). Never invent numbers.
+- Keep prose minimal: one-sentence Outcome, commit links, gate table. A reviewer should
+  scan the whole PR in under a minute.
+
 The block below is generated and maintained by Laravel Boost. Do not edit it by hand.
 
 <laravel-boost-guidelines>
