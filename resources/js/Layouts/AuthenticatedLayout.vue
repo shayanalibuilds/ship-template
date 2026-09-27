@@ -27,11 +27,7 @@ const showingNavigation = ref(false);
                 </button>
 
                 <div class="hidden items-center gap-2 md:flex">
-                    <Dropdown
-                        v-if="features.teams && (teams?.all?.length ?? 0) > 0"
-                        align="right"
-                        width="56"
-                    >
+                    <Dropdown v-if="features.teams" align="right" width="56">
                         <template #trigger>
                             <button
                                 type="button"
