@@ -14,7 +14,7 @@ first, implement, gates, PR, stop. Humans merge.
 4. **Write the failing test first.** Name it after the outcome:
    `it('lists only published releases')`.
 5. **Implement** the smallest change that turns the test green.
-6. **Run the gates**: `composer ready` (= `composer test`). All five must pass:
+6. **Run the gates**: `composer test`. All five must pass:
    peck, pest, pint + prettier, phpstan (level 8), rector.
 7. **Commit in reviewable units.** One commit tells one story. Tests may precede
    the implementation they cover.

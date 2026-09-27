@@ -10,8 +10,10 @@ Deliberate. `App\` is a Laravel convention; renaming namespaces buys nothing
 and breaks config caching, tests, and IDE links. The rename changes identity
 (composer name, APP_NAME, tokens), not the framework contract.
 
-**`composer ready` vs `composer test`?**
-They run the same gates. `ready` is the word you say when you claim done.
+**`composer setup` vs `composer test`?**
+`setup` bootstraps a fresh project once — rename, dependencies, env, app key,
+migrations, and the template git history removed. `test` runs the gates you
+claim done with.
 
 **A gate fails but my change is fine. Can I ignore it?**
 No. peck flags a word → add it to `peck.json` in the same PR. phpstan flags a

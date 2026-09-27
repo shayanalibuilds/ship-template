@@ -44,7 +44,7 @@ stays a Laravel convention. `--dry-run` writes nothing. The contract lives in
 ## Quality gates
 
 ```bash
-composer ready    # runs every gate below; exit 0 means done
+composer test    # runs every gate below; exit 0 means done
 ```
 
 | Gate              | Checks                              |
@@ -56,7 +56,7 @@ composer ready    # runs every gate below; exit 0 means done
 | rector            | refactorings stay applied, no drift |
 
 `composer fix` applies the safe fixes (types, rector, prettier, pint) — then
-re-run `composer ready`.
+re-run `composer test`.
 
 ## For agents
 

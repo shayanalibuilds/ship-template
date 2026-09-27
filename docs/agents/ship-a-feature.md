@@ -47,5 +47,5 @@ If your sentence has an "and then", split the PR.
 
 ## 8. Gates and PR
 
-- `composer ready` until exit 0, then the PR with commit links and real stats.
+- `composer test` until exit 0, then the PR with commit links and real stats.
 - Full story of the loop: `docs/agents/workflow.md`.

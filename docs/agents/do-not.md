@@ -25,7 +25,7 @@ has bitten a real project.
 
 - Do not delete a test to go green. Do not `skip()` a test. Do not mark a test
   `@group flaky` and move on — fix the flake.
-- Do not claim "done" without `composer ready` exit 0.
+- Do not claim "done" without `composer test` exit 0.
 - Do not invent gate numbers in a PR body. Run the suite, copy the real stats.
 - Do not do network calls in tests. Do not sleep() for timing.
 

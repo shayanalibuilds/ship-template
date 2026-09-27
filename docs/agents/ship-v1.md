@@ -14,7 +14,7 @@ as placeholders, so a partial rename is safe.
 
 ## 2. Make it yours in the first commit
 
-- First feature on a branch, first PR, first green `composer ready`.
+- First feature on a branch, first PR, first green `composer test`.
 - Keep the Release domain as the worked example — replace it only when your
   real domain exists.
 
@@ -37,5 +37,5 @@ as placeholders, so a partial rename is safe.
 ## Definition of v1
 
 - A stranger can sign up, use the core loop of the product, and come back.
-- `composer ready` is green on `main`.
+- `composer test` is green on `main`.
 - Every feature is merged through a reviewed PR — the git history tells the story.
