@@ -12,4 +12,4 @@ paths:
 - Tests are required for every behavior change. No `skip()` to go green. No deleted tests.
 - `.env` is gitignored. Ship `.env.example`. No secrets in git, ever.
 - SQLite locally and in tests. Queue, cache, and session drivers come from `.env`.
-- Run `composer ready` before claiming done.
+- Run `composer setup` when adopting the template, and `composer test` before claiming done.

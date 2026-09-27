@@ -27,5 +27,5 @@ php artisan serve
 ## Quality gates
 
 ```bash
-composer ready
+composer test
 ```
