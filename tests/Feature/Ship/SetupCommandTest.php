@@ -54,13 +54,14 @@ it('asks for the product name when none is given', function (): void {
 
 it('stops before writing anything when the name is empty', function (): void {
     $before = ship_sandbox_read($this->sandbox, 'composer.json');
+    $envBefore = ship_sandbox_read($this->sandbox, '.env');
 
     $this->artisan('ship:setup', ['--path' => $this->sandbox, '--force' => true])
         ->expectsQuestion('What is the product name?', '   ')
         ->assertFailed();
 
     expect(ship_sandbox_read($this->sandbox, 'composer.json'))->toBe($before);
-    expect(is_file($this->sandbox.'/.env'))->toBeFalse();
+    expect(ship_sandbox_read($this->sandbox, '.env'))->toBe($envBefore);
     Process::assertDidntRun('npm install --ignore-scripts');
 });
 
