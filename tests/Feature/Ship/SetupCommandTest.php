@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Actions\Ship\RenameProject;
+use Illuminate\Process\PendingProcess;
 use Illuminate\Support\Facades\Process;
 
 beforeEach(function (): void {
@@ -37,7 +38,7 @@ it('sets a sandbox project up end to end when forced', function (): void {
     Process::assertRan('npm install --ignore-scripts');
     Process::assertRan('npm run build');
     Process::assertRan('npm run build:ssr');
-    Process::assertRan('*artisan migrate --force');
+    Process::assertRan(fn ($process, $result): bool => str_ends_with((string) $process->command, 'artisan migrate --force'));
 
     expect(is_dir($this->sandbox.'/.git'))->toBeFalse();
 });
@@ -77,10 +78,7 @@ it('keeps the git history when the deletion is declined', function (): void {
 it('stops before the git deletion when the build fails', function (): void {
     mkdir($this->sandbox.'/.git', 0777, true);
 
-    Process::fake([
-        'npm run build' => Process::result(exitCode: 1),
-        '*' => Process::result(),
-    ]);
+    Process::fake(fn (PendingProcess $process) => str_starts_with((string) $process->command, 'npm run build') ? Process::result(exitCode: 1) : Process::result());
 
     $this->artisan('ship:setup', ['--name' => 'My Product', '--path' => $this->sandbox, '--force' => true])
         ->assertFailed();
