@@ -6,7 +6,10 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { useRoute } from 'ziggy-js';
 import { ref } from 'vue';
+
+const route = useRoute(usePage().props.ziggy);
 
 const props = defineProps({
     team: { type: Object, required: true },

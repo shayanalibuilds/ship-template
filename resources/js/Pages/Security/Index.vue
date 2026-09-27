@@ -5,7 +5,10 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { useForm, usePage } from '@inertiajs/vue3';
+import { useRoute } from 'ziggy-js';
 import { Link } from '@inertiajs/vue3';
+
+const route = useRoute(usePage().props.ziggy);
 
 const props = defineProps({
     enabled: { type: Boolean, required: true },

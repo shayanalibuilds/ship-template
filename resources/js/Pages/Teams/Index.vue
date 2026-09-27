@@ -4,6 +4,9 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { useRoute } from 'ziggy-js';
+
+const route = useRoute(usePage().props.ziggy);
 
 const teams = usePage().props.teams;
 const invitations = usePage().props.invitations;

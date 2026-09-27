@@ -8,6 +8,7 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Tightenco\Ziggy\Ziggy;
 
 final class HandleInertiaRequests extends Middleware
 {
@@ -52,6 +53,7 @@ final class HandleInertiaRequests extends Middleware
                 'teams' => (bool) config('features.teams'),
             ],
             'teams' => fn (): ?array => $this->teams($request),
+            'ziggy' => fn (): array => (new Ziggy)->toArray(),
             'status' => fn (): ?string => $request->session()->get('status'),
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),

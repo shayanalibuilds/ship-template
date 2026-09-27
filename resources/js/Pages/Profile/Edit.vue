@@ -7,6 +7,9 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { useRoute } from 'ziggy-js';
+
+const route = useRoute(usePage().props.ziggy);
 
 const mustVerifyEmail = usePage().props.mustVerifyEmail;
 const status = usePage().props.status;
