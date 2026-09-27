@@ -2,6 +2,6 @@
     "preset": "laravel",
     "ignore": {
         "words": ["php", "ssr", "npm", "vue"],
-        "paths": ["./docs/agents/vue-ssr.md"]
+        "paths": ["storage/inertia-devtools", "./docs/agents/vue-ssr.md"]
     }
 }
