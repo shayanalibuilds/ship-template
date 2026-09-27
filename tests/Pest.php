@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -43,3 +44,55 @@ expect()->extend('toBeOne', fn () => $this->toBe(1));
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
+
+if (! function_exists('ship_sandbox')) {
+    /**
+     * Copy the rename fixtures into a throwaway directory.
+     *
+     * Every rename test runs against its own sandbox so parallel test
+     * processes never write to the real repository files.
+     */
+    function ship_sandbox(): string
+    {
+        $sandbox = sys_get_temp_dir().'/ship-rename-'.uniqid((string) getmypid(), true);
+
+        (new Filesystem)->copyDirectory(
+            __DIR__.'/Fixtures/rename',
+            $sandbox,
+        );
+
+        return $sandbox;
+    }
+}
+
+if (! function_exists('ship_sandbox_path')) {
+    /**
+     * Absolute path of a file inside a sandbox, by its repo-relative name.
+     */
+    function ship_sandbox_path(string $sandbox, string $relative): string
+    {
+        return $sandbox.'/'.$relative;
+    }
+}
+
+if (! function_exists('ship_sandbox_read')) {
+    /**
+     * Contents of a sandbox file, or a marker when the file is absent.
+     */
+    function ship_sandbox_read(string $sandbox, string $relative): string
+    {
+        $path = ship_sandbox_path($sandbox, $relative);
+
+        return is_file($path) ? (string) file_get_contents($path) : '[missing:'.$relative.']';
+    }
+}
+
+if (! function_exists('ship_sandbox_remove')) {
+    /**
+     * Delete a sandbox and everything inside it.
+     */
+    function ship_sandbox_remove(string $sandbox): void
+    {
+        (new Filesystem)->deleteDirectory($sandbox);
+    }
+}
