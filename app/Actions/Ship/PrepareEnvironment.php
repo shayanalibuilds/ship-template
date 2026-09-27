@@ -7,7 +7,7 @@ namespace App\Actions\Ship;
 use RuntimeException;
 
 /**
- * Makes a project runnable: creates .env from .env.example and fills an empty APP_KEY.
+ * Makes a project ready to run: creates .env from .env.example and fills an empty APP_KEY.
  */
 final readonly class PrepareEnvironment
 {

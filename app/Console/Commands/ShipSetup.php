@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Process;
 use RuntimeException;
 
 /**
- * Bootstraps a fresh template clone into a runnable product with its own history.
+ * Bootstraps a fresh template clone into a working product with its own history.
  */
 final class ShipSetup extends Command
 {
