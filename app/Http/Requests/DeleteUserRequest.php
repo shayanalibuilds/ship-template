@@ -1,0 +1,33 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+final class DeleteUserRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function rules(): array
+    {
+        return [
+            'password' => ['required', 'string', 'current_password:web'],
+        ];
+    }
+
+    /**
+     * @return array{password: string}
+     */
+    public function validated($key = null, $default = null): array
+    {
+        return parent::validated($key, $default);
+    }
+}
