@@ -14,4 +14,4 @@ Path-scoped rules for this template. Read the rule file before editing anything 
 | [console.md](console.md)       | `app/Console/**`, `routes/console.php`                        |
 | [config.md](config.md)         | `config/**`                                                   |
 
-Always-on guidance lives in `.ai/guidelines/` (template, php-style, http).
+Always-on guidance lives in `.ai/guidelines/` (template, php-style, http, language).

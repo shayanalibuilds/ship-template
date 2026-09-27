@@ -5,7 +5,7 @@ This is a Laravel 13 + PHP 8.3 template. Vue 3 + Inertia, SSR on by default.
 ## Before you touch anything
 
 - Before planning, read `.ai/rules/index.md` and every rule whose paths match your edit.
-- Before a feature, read `docs/agents/ship-a-feature.md` (lands in PR 6).
+- Before a feature, read `docs/agents/ship-a-feature.md` (and its siblings in `docs/agents/`).
 - Run `composer test` before you claim done.
 
 ## Non-negotiables

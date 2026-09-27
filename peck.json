@@ -1,7 +1,7 @@
 {
     "preset": "laravel",
     "ignore": {
-        "words": ["php", "ssr", "npm"],
-        "paths": []
+        "words": ["php", "ssr", "npm", "vue"],
+        "paths": ["./docs/agents/vue-ssr.md"]
     }
 }
