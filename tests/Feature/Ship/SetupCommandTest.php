@@ -38,7 +38,7 @@ it('sets a sandbox project up end to end when forced', function (): void {
     Process::assertRan('npm install --ignore-scripts');
     Process::assertRan('npm run build');
     Process::assertRan('npm run build:ssr');
-    Process::assertRan(fn ($process, $result): bool => str_ends_with((string) $process->command, 'artisan migrate --force'));
+    Process::assertRan(fn ($process, $result): bool => str_ends_with(implode(' ', (array) $process->command), 'artisan migrate --force'));
 
     expect(is_dir($this->sandbox.'/.git'))->toBeFalse();
 });
