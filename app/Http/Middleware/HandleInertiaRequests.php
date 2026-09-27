@@ -36,6 +36,15 @@ final class HandleInertiaRequests extends Middleware
             'app' => [
                 'name' => config('app.name'),
             ],
+            'auth' => [
+                'user' => fn (): ?array => $request->user()?->only(
+                    'id',
+                    'name',
+                    'email',
+                    'email_verified_at',
+                ),
+            ],
+            'status' => fn (): ?string => $request->session()->get('status'),
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
             ],
