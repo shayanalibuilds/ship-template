@@ -95,7 +95,12 @@ function regenerate() {
                         Scan the QR code with your authenticator app, then confirm with a code.
                     </p>
 
-                    <div class="mt-4 max-w-[200px]" v-html="props.qrSvg" />
+                    <img
+                        v-if="props.qrSvg"
+                        :src="props.qrSvg"
+                        alt="Two-factor QR code"
+                        class="mt-4 w-48"
+                    />
 
                     <p class="mt-2 font-mono text-sm break-all text-gray-800">
                         {{ props.secret }}
