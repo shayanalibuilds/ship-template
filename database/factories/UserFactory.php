@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Services\TwoFactor\Totp;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -42,6 +43,17 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes): array => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Indicate that the user finished the two-factor setup.
+     */
+    public function withTwoFactor(): static
+    {
+        return $this->state(fn (): array => [
+            'two_factor_secret' => (new Totp)->generateSecret(),
+            'two_factor_confirmed_at' => now(),
         ]);
     }
 }
