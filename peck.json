@@ -1,7 +1,19 @@
 {
     "preset": "laravel",
     "ignore": {
-        "words": ["php", "ssr", "npm", "vue", "dropdown"],
+        "words": [
+            "php",
+            "ssr",
+            "npm",
+            "vue",
+            "dropdown",
+            "otpauth",
+            "totp",
+            "qrcode",
+            "svg",
+            "authenticator",
+            "decrypted"
+        ],
         "paths": ["storage/inertia-devtools", "./docs/agents/vue-ssr.md"]
     }
 }

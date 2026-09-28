@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Tighten\Ziggy\Ziggy;
 
 final class HandleInertiaRequests extends Middleware
 {
@@ -44,10 +47,46 @@ final class HandleInertiaRequests extends Middleware
                     'email_verified_at',
                 ),
             ],
+            'features' => fn (): array => [
+                'email_verification' => (bool) config('features.email_verification'),
+                'two_factor' => (bool) config('features.two_factor'),
+                'teams' => (bool) config('features.teams'),
+            ],
+            'teams' => fn (): ?array => $this->teams($request),
+            'ziggy' => fn (): array => (new Ziggy)->toArray(),
             'status' => fn (): ?string => $request->session()->get('status'),
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
             ],
+        ];
+    }
+
+    /**
+     * The current team switcher payload, only while the teams feature is on.
+     *
+     * @return array{current: array{id: int, name: string}|null, all: array<int, array{id: int, name: string}>}|null
+     */
+    private function teams(Request $request): ?array
+    {
+        if (! (bool) config('features.teams')) {
+            return null;
+        }
+
+        $user = $request->user();
+
+        if (! $user instanceof User) {
+            return null;
+        }
+
+        return [
+            'current' => $user->currentTeam?->only('id', 'name'),
+            'all' => $user->allTeams()
+                ->map(fn (Team $team): array => [
+                    'id' => (int) $team->getKey(),
+                    'name' => $team->name,
+                ])
+                ->values()
+                ->all(),
         ];
     }
 }
