@@ -36,7 +36,7 @@ final class ShipSetup extends Command
      * @var list<string>
      */
     private const array NPM_STEPS = [
-        'npm install --ignore-scripts',
+        'npm install',
         'npm run build',
         'npm run build:ssr',
     ];

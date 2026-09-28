@@ -35,7 +35,7 @@ it('sets a sandbox project up end to end when forced', function (): void {
     expect(ship_sandbox_read($this->sandbox, 'README.md'))
         ->toContain('github.com/acme/my-product');
 
-    Process::assertRan('npm install --ignore-scripts');
+    Process::assertRan('npm install');
     Process::assertRan('npm run build');
     Process::assertRan('npm run build:ssr');
     Process::assertRan(fn ($process, $result): bool => str_ends_with(implode(' ', (array) $process->command), 'artisan migrate --force'));
@@ -62,7 +62,7 @@ it('stops before writing anything when the name is empty', function (): void {
 
     expect(ship_sandbox_read($this->sandbox, 'composer.json'))->toBe($before);
     expect(ship_sandbox_read($this->sandbox, '.env'))->toBe($envBefore);
-    Process::assertDidntRun('npm install --ignore-scripts');
+    Process::assertDidntRun('npm install');
 });
 
 it('keeps the git history when the deletion is declined', function (): void {
